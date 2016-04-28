@@ -23,7 +23,7 @@ RUN apt-get install -y erlang erlang-ssl erlang-inets && rm erlang-solutions_1.0
 
 # *-*-*-*-*-* Elixir *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-ARG ELIXIR_VERSION=1.2.2
+ARG ELIXIR_VERSION=1.2.4
 # install elixir from source
 RUN git clone --branch v$ELIXIR_VERSION https://github.com/elixir-lang/elixir.git && cd elixir && make
 ENV PATH $PATH:/elixir/bin
