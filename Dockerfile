@@ -4,44 +4,65 @@ MAINTAINER Kyle A. Matheny <kamathen@us.ibm.com>
 
 # Elixir requires UTF-8
 RUN locale-gen en_US.UTF-8
+
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
 # update and install some software requirements
-RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git make
+RUN \
+    apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y \
+        curl \
+        git \
+        make \
+        wget
 
 # *-*-*-*-*-* Erlang *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 # download and install Erlang package
-RUN wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
- && dpkg -i erlang-solutions_1.0_all.deb \
- && apt-get update
+RUN \
+    wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
+    && dpkg -i erlang-solutions_1.0_all.deb \
+    && rm erlang-*.deb \
+    && apt-get update
 
 # install erlang from package
-RUN apt-get install -y erlang erlang-ssl erlang-inets && rm erlang-solutions_1.0_all.deb
+RUN \
+    apt-get install -y \
+        erlang \
+        erlang-inets \
+        erlang-ssl
 
 # *-*-*-*-*-* Elixir *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ARG ELIXIR_VERSION=1.3.0
 # install elixir from source
-RUN git clone --branch v$ELIXIR_VERSION https://github.com/elixir-lang/elixir.git && cd elixir && make
+RUN \
+    git clone --branch v$ELIXIR_VERSION https://github.com/elixir-lang/elixir.git \
+    && cd elixir \
+    && make
+
 ENV PATH $PATH:/elixir/bin
 
 # *-*-*-*-*-* Phoenix *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 ARG PHOENIX_VERSION=1.1.4
 # install Phoenix from source with some previous requirements
-RUN git clone --branch v$PHOENIX_VERSION https://github.com/phoenixframework/phoenix.git \
- && cd phoenix \
- && mix local.hex --force && mix local.rebar --force \
- && mix do deps.get, compile \
- && mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
+RUN \
+    git clone --branch v$PHOENIX_VERSION https://github.com/phoenixframework/phoenix.git \
+    && cd phoenix \
+    && mix local.hex --force \
+    && mix local.rebar --force \
+    && mix do deps.get, compile \
+    && mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
 
 # *-*-*-*-*-* NodeJS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ARG NODE_VERSION=5.5.0
-RUN curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+RUN \
+    curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
     && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
     && rm "node-v$NODE_VERSION-linux-x64.tar.gz"
 
