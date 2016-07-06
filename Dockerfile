@@ -2,6 +2,8 @@
 FROM ubuntu:latest
 MAINTAINER Kyle A. Matheny <kamathen@us.ibm.com>
 
+SHELL ["bash", "-c"]
+
 # Elixir requires UTF-8
 RUN locale-gen en_US.UTF-8
 
@@ -63,7 +65,7 @@ RUN \
 
 # *-*-*-*-*-* NodeJS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-ARG NODE_VERSION=6.2.2
+ARG NODE_VERSION=5.5.0
 RUN \
     curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
     && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
