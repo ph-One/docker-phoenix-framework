@@ -11,7 +11,7 @@ ENV LANG=en_US.UTF-8 \
 
 # update and install some software requirements
 RUN \
-    apt-get update \
+    apt-get update --fix-missing \
     && apt-get upgrade -y \
     && apt-get install -y \
         curl \
