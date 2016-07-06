@@ -74,3 +74,5 @@ WORKDIR /code
 ENTRYPOINT ["mix"]
 
 CMD ["phoenix.server"]
+
+EXPOSE 4000
