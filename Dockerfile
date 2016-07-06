@@ -49,7 +49,7 @@ ENV PATH $PATH:/elixir/bin
 
 # *-*-*-*-*-* Phoenix *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
-ARG PHOENIX_VERSION=1.1.4
+ARG PHOENIX_VERSION=1.2.0
 # install Phoenix from source with some previous requirements
 RUN \
     git clone --branch v$PHOENIX_VERSION https://github.com/phoenixframework/phoenix.git \
