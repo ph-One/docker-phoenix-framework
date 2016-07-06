@@ -1,4 +1,3 @@
-# Based on Phoenix Image by Marcelo Gonçalves <marcelocg@gmail.com>
 FROM ubuntu:latest
 MAINTAINER Kyle A. Matheny <kamathen@us.ibm.com>
 
