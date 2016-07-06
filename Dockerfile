@@ -82,9 +82,7 @@ LABEL com.1986.app="phoenix" \
 
 WORKDIR /code
 VOLUME ["/code"]
+EXPOSE 4000
 
 ENTRYPOINT ["mix"]
-
 CMD ["phoenix.server"]
-
-EXPOSE 4000
