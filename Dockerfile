@@ -82,6 +82,7 @@ LABEL com.1986.app="phoenix" \
 # *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 WORKDIR /code
+VOLUME ["/code"]
 
 ENTRYPOINT ["mix"]
 
