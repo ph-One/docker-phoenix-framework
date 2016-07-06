@@ -68,6 +68,16 @@ RUN \
     curl -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
     && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
     && rm "node-v$NODE_VERSION-linux-x64.tar.gz"
+    
+# *-*-*-*-*-* Labels *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+LABEL com.1986.app="phoenix" \
+      com.1986.version="${PHOENIX_VERSION}" \
+      com.1986.component.elixir.version="${ELIXIR_VERSION}" \
+      com.1986.component.nodejs.version="${NODE_VERSION}" \
+      com.1986.component.erlang.version="19.0"
+
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 WORKDIR /code
 
