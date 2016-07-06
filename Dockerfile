@@ -69,4 +69,6 @@ RUN \
 
 WORKDIR /code
 
-CMD ["mix", "phoenix.server"]
+ENTRYPOINT ["mix"]
+
+CMD ["phoenix.server"]
