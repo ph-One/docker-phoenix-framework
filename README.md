@@ -1,3 +1,3 @@
-# ![](logo.png) Phoenix Framework
+# ![](logo.png)
 
 A productive web framework that does not compromise speed and maintainability.
