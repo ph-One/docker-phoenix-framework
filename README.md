@@ -14,7 +14,7 @@ This image includes NodeJS for live reloading.
 ### [_optional_] Build the image  
 ```sh
 $> git clone https://github.com/ph-One/docker-phoenix-framework.git
-$> sudo docker build -f Dockerfile .
+$> sudo docker build -t phoenix:1.2.0 -f Dockerfile .
 ```
 
 ### Create a new project  
