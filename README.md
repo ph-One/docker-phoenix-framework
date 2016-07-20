@@ -2,21 +2,25 @@
 
 A docker image that can be used for all Phoenix Framework actions.
 
+---
+
 ## How-To
 0. [_optional_] Build the image  
-```sh
-$> git clone https://github.com/ph-One/docker-phoenix-framework.git
-$> sudo docker build -f Dockerfile .
-```
+  ```sh
+  $> git clone https://github.com/ph-One/docker-phoenix-framework.git
+  $> sudo docker build -f Dockerfile .
+  ```
 0. Create a new project  
-```sh
-$> sudo docker run --rm -it -v `pwd`:/code 1986/phoenix:1.2.0 phoenix.new HelloPhoenix
-$> cd HelloPhoenix
-```
+  ```sh
+  $> sudo docker run --rm -it -v `pwd`:/code 1986/phoenix:1.2.0 phoenix.new HelloPhoenix
+  $> cd HelloPhoenix
+  ```
 0. Build and run your project  
-```sh
-$> sudo docker run --rm -it -v `pwd`:/code 1986/phoenix:1.2.0
-```
+  ```sh
+  $> sudo docker run --rm -it -v `pwd`:/code 1986/phoenix:1.2.0
+  ```
+
+---
 
 ## Roadmap
 - [x] Handle all `mix` actions
