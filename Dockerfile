@@ -8,7 +8,8 @@ RUN locale-gen en_US.UTF-8
 
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+    LC_ALL=en_US.UTF-8 \
+    DEBIAN_FRONTEND=noninteractive
 
 # update and install some software requirements
 RUN \
@@ -25,6 +26,8 @@ RUN \
 
 WORKDIR /
 
+ARG ERLANG_VERSION=1:19.0-1
+
 # download and install Erlang package
 RUN \
     wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
@@ -35,7 +38,7 @@ RUN \
 # install erlang from package
 RUN \
     apt-get install -y \
-        erlang \
+        erlang=$ERLANG_VERSION \
         erlang-inets \
         erlang-ssl
 
@@ -80,7 +83,7 @@ LABEL com.1986.app="phoenix" \
       com.1986.version="${PHOENIX_VERSION}" \
       com.1986.component.elixir.version="${ELIXIR_VERSION}" \
       com.1986.component.nodejs.version="${NODE_VERSION}" \
-      com.1986.component.erlang.version="19.0"
+      com.1986.component.erlang.version="${ERLANG_VERSION}"
 
 # *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
