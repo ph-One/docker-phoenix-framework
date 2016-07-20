@@ -1,6 +1,6 @@
 # ![Logo](logo.png)
 
-```
+```sh
 $> sudo docker pull 1986/phoenix:1.2.0
 ```
 
@@ -8,10 +8,10 @@ A docker image that can be used for all Phoenix Framework actions.
 This image includes NodeJS for live reloading.
 
 The Docker image contains the following software, and versions:
-- Elixir 1.3.0
-- NodeJS 6.2.2
-- Erlang 19.0
-- Phoenix 1.2.0
+- Elixir `1.3.0`
+- NodeJS `6.2.2`
+- Erlang `19.0`
+- Phoenix `1.2.0`
 
 ---
 
