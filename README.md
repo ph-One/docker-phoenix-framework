@@ -1,6 +1,11 @@
 # ![Logo](logo.png)
 
+```
+$> sudo docker pull 1986/phoenix:1.2.0
+```
+
 A docker image that can be used for all Phoenix Framework actions.
+This image includes NodeJS for live reloading.
 
 ---
 
