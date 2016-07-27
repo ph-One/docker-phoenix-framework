@@ -44,7 +44,7 @@ RUN \
 
 # *-*-*-*-*-* Elixir *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-ARG ELIXIR_VERSION=1.3.0
+ARG ELIXIR_VERSION=1.3.2
 # install elixir from source
 RUN \
     git clone --branch v$ELIXIR_VERSION https://github.com/elixir-lang/elixir.git \
