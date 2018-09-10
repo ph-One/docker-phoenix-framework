@@ -17,12 +17,6 @@ The Docker image contains the following software, and versions:
 
 ## How-To
 
-### [_optional_] Build the image  
-```sh
-$> git clone https://github.com/ph-One/docker-phoenix-framework.git
-$> sudo docker build -t phoenix:1.2.0 -f Dockerfile .
-```
-
 ### Create a new project  
 ```sh
 $> sudo docker run --rm -it -v `pwd`:/code 1986/phoenix:1.2.0 phoenix.new helloPhoenix
