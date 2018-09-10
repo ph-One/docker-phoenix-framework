@@ -1,7 +1,7 @@
 # ![Logo](logo.png)
 
 ```sh
-$> sudo docker pull 1986/phoenix:1.2.0
+$> sudo docker pull 1986/phoenix:1.3.4
 ```
 
 A docker image that can be used for all Phoenix Framework actions.
